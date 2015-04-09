@@ -9,6 +9,10 @@ license : "Unknown",
 contact : "http://linkedin.com/in/faisalabid"
 -->
 
+<!-- @section -->
+
+# Introduction
+
 Node.js development is extremely fun and satisfying. There are over 35k modules to choose from, and overall node is very easy to develop a working application that can scale easily.
 
 However for developers just starting off with Node.js development, there are a few bumps along the road. In this short post I cover a few of the things I questioned and ran into while learning Node.js.
