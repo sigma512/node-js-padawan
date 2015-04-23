@@ -23,13 +23,19 @@ However for developers just starting off with Node.js development, there are a f
 
 When you first get started with Node.js development, one of the things that will stick out like a sore thumb is having to run node [file].js over and over again. When I got started with node, this was extremely frustrating and painful. Especially having to control C every time I modified something.
 
-Luckily I discovered a great tool called Nodemon https://github.com/remy/nodemon. Install it by running npm install -g nodemon.
+Luckily I discovered a great tool called Nodemon.
+
+<!-- @link, "url" : "https://github.com/remy/nodemon", "task" : "Install Nodemon by running npm install -g nodemon." -->
 
 Nodemon is an awesome tool, once you install it globally you can run your node.js scripts via nodemon [file].js. Doing so will tell nodemon to monitor your script and all the scripts that it depends on for changes. This is an awesome way to do Node.js development and speeds everything up.
 
 What about production? Unless you are using Heroku, Nodejitsu or other great Node.js hosting providers, chances are you will be using EC2 or another cloud provider to run your Node.js app. How do you properly run a Node.js app to make sure it’s always running?
 
-The answer to that question is a great tool called PM2 https://github.com/Unitech/pm2. PM2 is a tool like nodemon which is intended to run your node app in production. Like Nodemon it will monitor your app for changes and redeploy them, but unlike Nodemon, if PM2 encounters a crash, it will restart your node.js app right away.
+The answer to that question is a great tool called PM2.
+
+<!-- @link, "url" : "https://github.com/Unitech/pm2", "task" : "Install PM2." -->
+
+PM2 is a tool like nodemon which is intended to run your node app in production. Like Nodemon it will monitor your app for changes and redeploy them, but unlike Nodemon, if PM2 encounters a crash, it will restart your node.js app right away.
 
 Where PM2 excels though is when you need to scale your app to multiple cores. PM2 comes with a built in “load balancer” that lets you easily specify how many instances of your Node app to run.
 
@@ -37,7 +43,7 @@ Where PM2 excels though is when you need to scale your app to multiple cores. PM
 pm2 start app.js -i max
 ```
 
-The -i parameters lets you specify how many instances to run, in this case PM2 comes with a built in constant called max which auto scales your app to the amoutn of cores you have. Remember Node runs only on one core!
+The -i parameters lets you specify how many instances to run, in this case PM2 comes with a built in constant called max which auto scales your app to the amount of cores you have. Remember Node runs only on one core!
 
 <!-- @section -->
 
@@ -77,7 +83,9 @@ One simple way is to use events. I personally don’t like using events because 
 
 How do you do this then? There are two competing libraries out there, async.js and Q. Both offer their own take on how callback hell should be prevents.
 
-Async.js https://github.com/caolan/async or “async” allows you to easily execute functions in series or parallel without the need of nesting them back to back.
+Async.js or “async” allows you to easily execute functions in series or parallel without the need of nesting them back to back.
+
+<!-- @link, "url" : "https://github.com/caolan/async", "task" : "Install Async.js." -->
 
 Below are some of the patterns that Async supports taken from their readme. For a list of all the patterns async supports check out their repo.
 
@@ -118,7 +126,9 @@ Below are some of the patterns that Async supports taken from their readme. For 
 
 If we take what we did previously with register, we can apply the waterfall pattern in async. The result of this is a very readable code pattern that doesn’t involve the pyramid of doom.
 
-Another great library is Q https://github.com/kriskowal/q. This library is exposes the concept of promises. A promise is basically an object that is returned from a method with the “promise” that it will eventually provide a return value. This ties is very neatly with the asynchronous nature of javascript and node.js.
+Another great library is Q. This library is exposes the concept of promises. A promise is basically an object that is returned from a method with the “promise” that it will eventually provide a return value. This ties is very neatly with the asynchronous nature of javascript and node.js.
+
+<!-- @link, "url" : "https://github.com/kriskowal/q", "task" : "Install Q." -->
 
 For example, taken from Q’s repo page.
 
@@ -167,9 +177,10 @@ In a nutshell node-inspector lets you debug your applications using whatever edi
 
 Node-inspector lets you do some really cool things like live code changing, step debugging, scope injection and a bunch of other cool stuff.
 
-It’s bit involved to setup, so I’ll let you follow the instructions over at
+It’s bit involved to setup, so I’ll let you follow the instructions yourself.
 
-* https://github.com/node-inspector/node-inspector
+<!-- @link, "url" : "https://github.com/node-inspector/node-inspector", "task" : "Install node-inspector." -->
+
 
 
 <!-- @section -->
@@ -180,7 +191,7 @@ Once you have your application up and running, you might ask yourself how you co
 
 Nodefly with a simple line of code starts to monitor your application for memory leaks, measure how long it takes for redis, mongo queries and a bunch of other cool stuff.
 
-* http://www.nodefly.com
+<!-- @link, "url" : "http://www.nodefly.com", "task" : "Read about Nodefly." -->
 
 
 <!-- @section -->
@@ -191,19 +202,19 @@ One of the most common things to do in node is installing packages via NPM. Node
 
 It seems like a pain to always be opening your package.json to update the dependcies property with the new module you just installed, but what many don’t know is npm will do this for you!
 
-Simple run npm install — save module_name and npm will automaticly update your package.json with the correct module and version name. npm install —save module_name
+Simple run `npm install --save module_name` and npm will automatically update your package.json with the correct module and version name.
 
 <!-- @section -->
 
 # Tip 6: Don’t check in your node_modules folder
 
-While we are on the topic of modules and npm, not many know that you shouldn’t check in your node_modules folder. The biggest reason behind this is there is no need for you to check this folder in. Whenever someone checks your source out they can just run npm install and download all the modules required.
+While we are on the topic of modules and npm, not many know that you shouldn’t check in your `node_modules` folder. The biggest reason behind this is there is no need for you to check this folder in. Whenever someone checks your source out they can just run npm install and download all the modules required.
 
-You might say that it’s not a big deal if you check in node_modules, but what if the person checking out your source is using an operating system other than yours and one of the modules that your app uses is compiled when it’s installed via npm? Your app will crash and the person that checked out your source will have no idea why!
+You might say that it’s not a big deal if you check in `node_modules`, but what if the person checking out your source is using an operating system other than yours and one of the modules that your app uses is compiled when it’s installed via npm? Your app will crash and the person that checked out your source will have no idea why!
 
 For example modules like bcrypt and sentimental are compiled on the host system when you install them because they have native components written in C.
 
-The best way to avoid checking in your node_modules folder is by adding it to .gitignore.
+The best way to avoid checking in your `node_modules` folder is by adding it to .gitignore.
 
 // .gitignore node_modules/*
 
