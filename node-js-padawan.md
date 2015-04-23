@@ -169,7 +169,7 @@ My personal fav? **Q all the way**!
 
 Debugging Node.js apps will be confusing if you are coming from a language with heavy IDE integration like Java or C#. Most new node developers adopt the “flow” debugging pattern, where your best friend becomes console.log.
 
-However there are still alternatives that are more convention to debugging. Node.js comes with a built in debugger that you can run by calling node debug, however the one I love is node-inspector.
+However there are still alternatives that are more convenient for debugging. Node.js comes with a built in debugger that you can run by calling node debug, however the one I love is node-inspector.
 
 Taken from their github repo “Node Inspector is a debugger interface for node.js using the Blink Developer Tools (former WebKit Web Inspector).”
 
