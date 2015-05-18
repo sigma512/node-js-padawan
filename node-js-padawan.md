@@ -1,4 +1,5 @@
 <!--
+
 name: node-js-padawan
 freshnessDate: 2014-12-12
 version : "0.1.2"
@@ -8,6 +9,7 @@ homepage : "https://medium.com/@faisalabid/7-tips-for-a-node-js-padawan-e7c0b0e5
 author : "Faisal Abid"
 license : "Unknown"
 contact : { url: "http://linkedin.com/in/faisalabid" }
+
 -->
 
 <!-- @section -->
